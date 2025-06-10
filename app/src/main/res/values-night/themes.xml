@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.ProyectoFinalDAM135" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/SteelBlue</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="editTextStyle">@style/edittextNightPersonalizado</item>
+        <item name="android:textViewStyle">@style/textviewNightPersonalizado</item>
+        <item name="materialButtonStyle">@style/buttonNightPersonalizado</item>
+    </style>
+
+    <style name="textviewNightPersonalizado" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:fontStyle">italic</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="edittextNightPersonalizado" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/lightgray</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="buttonNightPersonalizado" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/SteelBlue</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.buttonPersonalizado</item>
+    </style>
+
+    <style name="ShapeAppearance.buttonPersonalizado" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>
