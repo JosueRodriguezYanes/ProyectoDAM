@@ -24,7 +24,21 @@ public class VentanaI extends AppCompatActivity {
                 Intent intent = new Intent(VentanaI.this, MainActivity.class);
                 startActivity(intent);
             }
+
+
         });
+
+        Button BCliente;
+
+        BCliente = findViewById(R.id.buttonCliente);
+        BCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VentanaI.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

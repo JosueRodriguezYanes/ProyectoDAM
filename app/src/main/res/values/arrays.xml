@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipos_servicio">
+        <item>seleccionar Servicio</item>
+        <item>taller</item>
+        <item>servicio tecnico</item>
+        <item>Otro</item>
+    </string-array>
+</resources>
