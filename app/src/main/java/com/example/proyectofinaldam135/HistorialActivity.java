@@ -93,7 +93,7 @@ public class HistorialActivity extends AppCompatActivity {
 
     private void setupRecyclerView(List<Expediente> expedientes) {
         try {
-            adapter = new ExpedienteAdapter(expedientes);
+            adapter = new ExpedienteAdapter(expedientes, null);
             recyclerView.setAdapter(adapter);
             Log.d(TAG, "RecyclerView configurado correctamente");
         } catch (Exception e) {

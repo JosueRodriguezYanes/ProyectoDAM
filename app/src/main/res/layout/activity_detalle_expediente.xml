@@ -64,6 +64,7 @@
             android:id="@+id/tvDireccionDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Dirección: "
             android:layout_marginBottom="16dp"/>
 
         <!-- Detalles del servicio -->
@@ -148,13 +149,14 @@
             android:textColor="?android:attr/textColorPrimary"/>
 
         <!-- Foto adjunta -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Foto adjunta"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ivFotoDetalle"

@@ -37,7 +37,18 @@ public class AdminActivity extends AppCompatActivity {
 
     private void cargarExpedientes() {
         List<Expediente> todosExpedientes = dbHelper.obtenerTodosExpedientes();
-        adapter = new ExpedienteAdapter(todosExpedientes);
+        adapter = new ExpedienteAdapter(todosExpedientes, expediente -> {
+            Intent intent = new Intent(AdminActivity.this, DetalleExpedienteActivity.class);
+            intent.putExtra("usuario", expediente.getUsuario());
+            intent.putExtra("cliente", expediente.getCliente());
+            intent.putExtra("telefono", expediente.getTelefono());
+            intent.putExtra("direccion", expediente.getDireccion());
+            intent.putExtra("problema", expediente.getProblema());
+            intent.putExtra("fecha", expediente.getFecha());
+            intent.putExtra("tipo", expediente.getTipoServicio());
+            intent.putExtra("urgencia", expediente.getUrgencia());
+            startActivity(intent);
+        });
         recyclerView.setAdapter(adapter);
     }
 

@@ -14,11 +14,18 @@ import java.util.List;
 
     public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.ExpedienteViewHolder> {
 
-        private List<Expediente> expedientes;
-
-        public ExpedienteAdapter(List<Expediente> expedientes) {
-            this.expedientes = expedientes != null ? expedientes : new ArrayList<>();
+        public interface OnItemClickListener {
+            void onItemClick(Expediente expediente);
         }
+
+        private List<Expediente> expedientes;
+        private OnItemClickListener listener;
+
+        public ExpedienteAdapter(List<Expediente> expedientes, OnItemClickListener listener) {
+            this.expedientes = expedientes != null ? expedientes : new ArrayList<>();
+            this.listener = listener;
+        }
+
 
     @NonNull
     @Override
@@ -38,6 +45,15 @@ import java.util.List;
         try {
             Expediente expediente = expedientes.get(position);
             holder.bind(expediente);
+
+            holder.itemView.setOnClickListener(v ->
+            {
+                if (listener != null)
+                {
+                    listener.onItemClick(expediente);
+                }
+            });
+
         } catch (Exception e) {
             Log.e("ADAPTER_ERROR", "Error en posición " + position, e);
         }
