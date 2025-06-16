@@ -24,7 +24,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuario);
+        setContentView(R.layout.aactivity_usuario);
 
         // Inicializar vistas
         tvWelcome = findViewById(R.id.tvWelcome);

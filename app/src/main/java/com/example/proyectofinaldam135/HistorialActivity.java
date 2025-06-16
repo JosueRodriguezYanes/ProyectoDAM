@@ -19,7 +19,7 @@ public class HistorialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historial);
+        setContentView(R.layout.aactivity_historial);
 
         Log.d(TAG, "Activity created");
 
