@@ -1,9 +1,11 @@
     package com.example.proyectofinaldam135;
 
     import android.content.Intent;
+    import android.net.Uri;
     import android.os.Bundle;
     import android.view.View;
     import android.widget.Button;
+    import android.widget.ImageView;
     import android.widget.TextView;
     import android.widget.Toast;
     import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,17 @@
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_detalle_expediente);
             dbHelper = new DBHelper(this);
+
+            // En el onCreate, después de obtener los otros extras:
+            String fotoPath = getIntent().getStringExtra("foto");
+            if (fotoPath != null && !fotoPath.isEmpty()) {
+                ImageView ivFoto = findViewById(R.id.ivFotoDetalle); // Asegúrate de tener este ImageView
+                ivFoto.setVisibility(View.VISIBLE);
+                ivFoto.setImageURI(Uri.parse(fotoPath));
+            } else {
+                ImageView ivFoto = findViewById(R.id.ivFotoDetalle);
+                ivFoto.setVisibility(View.GONE);
+            }
 
             // Inicializacion de vistas
 
@@ -109,6 +122,8 @@
                     } else {
                         Toast.makeText(this, "Error al marcar como realizado", Toast.LENGTH_SHORT).show();
                     }
+
+
                 }
             });
         }

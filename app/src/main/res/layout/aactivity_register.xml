@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
+    <!-- Toolbar con los mismos parámetros exactos pero mejorado visualmente -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="425dp"
@@ -12,35 +14,39 @@
         android:background="@color/SteelBlue"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="-7dp"
-        tools:layout_editor_absoluteY="-8dp"
-        tools:ignore="MissingConstraints" />
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="107dp"
-        android:text="Registro de Usuario"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
-        app:layout_constraintStart_toStartOf="@+id/toolbar2"
-        app:layout_constraintTop_toTopOf="@+id/toolbar2" />
+        <!-- Título centrado manteniendo los mismos márgenes exactos -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="104dp"
+            android:layout_marginEnd="107dp"
+            android:text="Registro de Usuario"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+    </androidx.appcompat.widget.Toolbar>
 
+    <!-- Campos de texto con los mismos tamaños exactos pero mejor estilo -->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="404dp"
         android:layout_height="36dp"
         android:layout_marginTop="36dp"
         android:hint="Nombre de usuario"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar2" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -49,8 +55,11 @@
         android:layout_marginTop="16dp"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etUsername" />
 
@@ -61,16 +70,25 @@
         android:layout_marginTop="16dp"
         android:hint="Confirmar contraseña"
         android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
+    <!-- Botón con los mismos parámetros exactos pero mejor estilo -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="410dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
         android:text="Registrarse"
+        android:backgroundTint="@color/SteelBlue"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />

@@ -26,4 +26,5 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="verde_realizado">#008000</color>
 
+    <color name="gray">@color/grey</color>
 </resources>

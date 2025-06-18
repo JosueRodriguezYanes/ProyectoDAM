@@ -1,131 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
 
+        <!-- Título con mejor estilo -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nuevo Expediente"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="24dp"
+            android:textColor="#333333"
+            android:letterSpacing="0.02"/>
 
+        <!-- Campos de entrada con mejor espaciado -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="12dp"
+            app:boxStrokeColor="#757575"
+            app:hintTextColor="#757575">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre del Cliente"/>
+                android:hint="Nombre del Cliente"
+                android:textColor="#212121"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="12dp"
+            app:boxStrokeColor="#757575"
+            app:hintTextColor="#757575">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Teléfono"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:textColor="#212121"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="#757575"
+            app:hintTextColor="#757575">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Dirección"/>
+                android:hint="Dirección"
+                android:textColor="#212121"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Secciones con mejor jerarquía visual -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tipo de Servicio"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"/>
+            android:textSize="15sp"
+            android:textColor="#424242"
+            android:layout_marginBottom="6dp"/>
 
         <Spinner
             android:id="@+id/spTipoServicio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#757575"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nivel de Urgencia"
+            android:textSize="15sp"
+            android:textColor="#424242"
             android:layout_marginBottom="8dp"/>
 
         <RadioGroup
             android:id="@+id/rgUrgencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rbNormal"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Normal"
-                android:checked="true"/>
+                android:checked="true"
+                android:buttonTint="#4CAF50"
+                android:textColor="#424242"/>
 
             <RadioButton
                 android:id="@+id/rbUrgente"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Urgente"/>
+                android:layout_weight="1"
+                android:text="Urgente"
+                android:buttonTint="#F44336"
+                android:textColor="#424242"/>
         </RadioGroup>
 
+        <!-- Área de texto con mejor estilo -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="#757575"
+            app:hintTextColor="#757575">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etProblema"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:hint="Descripción del Problema"
-                android:inputType="textMultiLine"/>
+                android:inputType="textMultiLine"
+                android:textColor="#212121"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Botones con mejor estilo -->
         <Button
             android:id="@+id/btnAdjuntarFoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Adjuntar Foto"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#2196F3"
+            app:strokeColor="#2196F3"/>
 
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="Enviar Expediente"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:textColor="@android:color/white"/>
+            style="@style/Widget.MaterialComponents.Button"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"/>
 
         <ImageView
             android:id="@+id/ivPreview"
@@ -133,15 +171,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:visibility="gone"/>
-
-        <!-- Urgencia -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nivel de urgencia:"
-            android:layout_marginTop="8dp"/>
-
-
+            android:visibility="gone"
+            android:background="#E0E0E0"/>
     </LinearLayout>
 </ScrollView>
