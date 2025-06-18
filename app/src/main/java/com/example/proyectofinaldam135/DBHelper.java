@@ -18,7 +18,7 @@
             checkAdminUser();
         }
 
-        // Dentro de DBHelper.java
+
         public String getUserRole(String usuario) {
             SQLiteDatabase db = this.getReadableDatabase();
             Cursor cursor = null;
@@ -68,6 +68,40 @@
             db.insert("usuarios", null, admin);
         }
 
+        public boolean marcarExpedienteComoRealizado(int idExpediente) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("urgencia", "Realizado");
+
+            try {
+                int rowsAffected = db.update(
+                        "expedientes",
+                        values,
+                        "id = ?",
+                        new String[]{String.valueOf(idExpediente)}
+                );
+                return rowsAffected > 0;
+            } catch (Exception e) {
+                Log.e("DB_ERROR", "Error al marcar como realizado", e);
+                return false;
+            } finally {
+
+            }
+        }
+        public boolean eliminarExpediente(int idExpediente) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            try {
+                int rowsAffected = db.delete(
+                        "expedientes",
+                        "id = ?",
+                        new String[]{String.valueOf(idExpediente)}
+                );
+                return rowsAffected > 0;
+            } catch (Exception e) {
+                Log.e("DB_ERROR", "Error al eliminar expediente", e);
+                return false;
+            }
+        }
         public void checkAdminUser() {
             SQLiteDatabase db = this.getReadableDatabase();
             Cursor cursor = db.rawQuery("SELECT * FROM usuarios WHERE usuario = 'admin'", null);
@@ -184,7 +218,7 @@
                 if (cursor != null) cursor.close();
             }
         }
-        // En tu DBHelper.java, asegúrate de tener estos métodos:
+
 
         public List<Expediente> obtenerTodosExpedientes() {
             List<Expediente> expedientes = new ArrayList<>();
@@ -224,6 +258,7 @@
             ContentValues values = new ContentValues();
 
             // Validación reforzada
+
             if (usuario == null || usuario.isEmpty()) {
                 Log.e("DB_ERROR", "Usuario no puede ser nulo");
                 return false;

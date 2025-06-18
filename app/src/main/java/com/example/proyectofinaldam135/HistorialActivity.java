@@ -3,6 +3,7 @@ package com.example.proyectofinaldam135;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,11 +24,17 @@ public class HistorialActivity extends AppCompatActivity {
 
         Log.d(TAG, "Activity created");
 
+        Button btnAtras = findViewById(R.id.btnatras);
+        btnAtras.setOnClickListener(v -> {
+            finish();
+        });
+
         try {
-            // 1. Inicialización segura de vistas
+            // 1. Inicialización segura de las vistas
             initializeComponents();
 
-            // 2. Obtener usuario actual con verificación
+
+            //  Obtenecion de usuario actual con verificación
             String usuario = getCurrentUser();
             if (usuario == null || usuario.isEmpty()) {
                 Log.w(TAG, "No se encontró usuario en SharedPreferences");
@@ -35,7 +42,8 @@ public class HistorialActivity extends AppCompatActivity {
                 return;
             }
 
-            // 3. Cargar y mostrar datos
+            // Carga y muestra datos
+
             loadAndDisplayData(usuario);
 
         } catch (Exception e) {
@@ -115,6 +123,7 @@ public class HistorialActivity extends AppCompatActivity {
             finish();
         });
     }
+
 
     @Override
     protected void onDestroy() {

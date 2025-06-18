@@ -7,7 +7,7 @@
     android:background="?android:attr/selectableItemBackground"
     android:layout_marginBottom="8dp">
 
-    <!-- Añade este TextView para mostrar el usuario -->
+
     <TextView
         android:id="@+id/tvUsuario"
         android:layout_width="match_parent"

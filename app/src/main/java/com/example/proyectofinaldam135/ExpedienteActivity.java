@@ -51,7 +51,7 @@ public class ExpedienteActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         sharedPref = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
-        // Configurar Spinner
+        // configuracion del spinner
         setupSpinner();
 
         btnAdjuntarFoto.setOnClickListener(v -> seleccionarFoto());
@@ -83,7 +83,7 @@ public class ExpedienteActivity extends AppCompatActivity {
     }
 
     private void enviarExpediente() {
-        // Obtener valores
+        // Obtenecion de los valores
         String cliente = etCliente.getText().toString().trim();
         String telefono = etTelefono.getText().toString().trim();
         String direccion = etDireccion.getText().toString().trim();
@@ -94,7 +94,7 @@ public class ExpedienteActivity extends AppCompatActivity {
         String usuario = sharedPref.getString("usuario", "");
         String fotoPath = currentPhotoPath != null ? currentPhotoPath : "";
 
-        // Validar datos antes de insertar
+        // aqui se validan los datos antes de insertar
         if (!dbHelper.checkUsername(usuario)) {
             Toast.makeText(this, "ERROR: El usuario no existe en el sistema", Toast.LENGTH_LONG).show();
             Log.e("EXPEDIENTE_ERROR", "Usuario no encontrado: " + usuario);
@@ -113,7 +113,7 @@ public class ExpedienteActivity extends AppCompatActivity {
         Log.d("DB_DEBUG", "Foto Path: " + (fotoPath.isEmpty() ? "No hay foto" : fotoPath));
         Log.d("DB_DEBUG", "==========================");
 
-        // Luego procedes con la inserción (esto ya lo tienes)
+        // inserscion
         try {
             boolean success = dbHelper.insertExpediente(
                     usuario,

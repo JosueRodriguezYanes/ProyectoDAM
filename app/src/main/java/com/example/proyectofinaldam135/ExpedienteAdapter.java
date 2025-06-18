@@ -7,25 +7,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-    public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.ExpedienteViewHolder> {
+public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.ExpedienteViewHolder> {
+    public interface OnItemClickListener {
+        void onItemClick(Expediente expediente);
+    }
 
-        public interface OnItemClickListener {
-            void onItemClick(Expediente expediente);
+    public List<Expediente> expedientes;
+    private OnItemClickListener listener;
+    private List<String> expedientesRealizados = new ArrayList<>(); // Lista simple para realizados
+
+    public ExpedienteAdapter(List<Expediente> expedientes, OnItemClickListener listener) {
+        this.expedientes = expedientes != null ? expedientes : new ArrayList<>();
+        this.listener = listener;
+    }
+
+    // Aqui esta el metodo para marcar realizado josue, revisa si te parece bien, sino, me rindo JAJA
+    public void marcarComoRealizado(String cliente, String fecha, String problema) {
+        String identificador = cliente + fecha + problema;
+        if (!expedientesRealizados.contains(identificador)) {
+            expedientesRealizados.add(identificador);
+            notifyDataSetChanged();
         }
-
-        private List<Expediente> expedientes;
-        private OnItemClickListener listener;
-
-        public ExpedienteAdapter(List<Expediente> expedientes, OnItemClickListener listener) {
-            this.expedientes = expedientes != null ? expedientes : new ArrayList<>();
-            this.listener = listener;
-        }
-
+    }
 
     @NonNull
     @Override
@@ -46,14 +55,26 @@ import java.util.List;
             Expediente expediente = expedientes.get(position);
             holder.bind(expediente);
 
-            holder.itemView.setOnClickListener(v ->
-            {
-                if (listener != null)
-                {
+            // Configurar el estado basado en la urgencia
+            if ("Realizado".equals(expediente.getUrgencia())) {
+                holder.tvEstado.setText("Realizado");
+                holder.tvEstado.setBackgroundResource(R.drawable.bg_realizado);
+                holder.tvEstado.setTextColor(Color.WHITE);
+            } else if ("Urgente".equals(expediente.getUrgencia())) {
+                holder.tvEstado.setText(expediente.getUrgencia());
+                holder.tvEstado.setBackgroundResource(R.drawable.bg_urgencia_urgente);
+                holder.tvEstado.setTextColor(Color.WHITE);
+            } else {
+                holder.tvEstado.setText(expediente.getUrgencia());
+                holder.tvEstado.setBackgroundResource(R.drawable.bg_urgencia);
+                holder.tvEstado.setTextColor(Color.BLACK);
+            }
+
+            holder.itemView.setOnClickListener(v -> {
+                if (listener != null) {
                     listener.onItemClick(expediente);
                 }
             });
-
         } catch (Exception e) {
             Log.e("ADAPTER_ERROR", "Error en posición " + position, e);
         }
@@ -69,7 +90,6 @@ import java.util.List;
 
         public ExpedienteViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Asegúrate de incluir tvUsuario aquí
             tvUsuario = itemView.findViewById(R.id.tvUsuario);
             tvCliente = itemView.findViewById(R.id.tvCliente);
             tvProblema = itemView.findViewById(R.id.tvProblema);
@@ -78,17 +98,20 @@ import java.util.List;
         }
 
         public void bind(Expediente expediente) {
-            // Ahora puedes usar tvUsuario sin errores
             tvUsuario.setText("Usuario: " + expediente.getUsuario());
             tvCliente.setText(expediente.getCliente());
             tvProblema.setText(expediente.getProblema());
             tvFecha.setText(expediente.getFecha());
             tvEstado.setText(expediente.getUrgencia());
 
-            // Resaltar urgencia
+            // Resaltar estados
             if ("Urgente".equals(expediente.getUrgencia())) {
                 tvEstado.setBackgroundResource(R.drawable.bg_urgencia_urgente);
                 tvEstado.setTextColor(Color.WHITE);
+            } else if ("Realizado".equals(expediente.getUrgencia())) {
+                tvEstado.setBackgroundColor(ContextCompat.getColor(itemView.getContext(), R.color.verde_realizado));
+                tvEstado.setTextColor(Color.WHITE);
+
             } else {
                 tvEstado.setBackgroundResource(R.drawable.bg_urgencia);
                 tvEstado.setTextColor(Color.BLACK);

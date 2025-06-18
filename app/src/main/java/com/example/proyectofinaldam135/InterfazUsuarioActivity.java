@@ -26,7 +26,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aactivity_usuario);
 
-        // Inicializar vistas
+        // Inicializacion de vistas
         tvWelcome = findViewById(R.id.tvWelcome);
         btnNewExpedient = findViewById(R.id.btnNewExpedient);
         btnHistory = findViewById(R.id.btnHistory);
@@ -53,7 +53,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
             }
         });
 
-        // Configurar menú
+        // cofig del menu menú
         btnMenu.setOnClickListener(this::showMenu);
     }
 
@@ -72,7 +72,8 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        // Limpiar preferencias
+        // Aqui se limpian preferenicas, asi dejalo
+
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.clear();
         editor.apply();

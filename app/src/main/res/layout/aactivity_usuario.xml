@@ -16,11 +16,6 @@
         tools:layout_editor_absoluteX="-7dp"
         tools:layout_editor_absoluteY="-8dp" />
 
-    <!-- TextView de bienvenida -->
-
-    <!-- Botón Nuevo Expediente -->
-
-    <!-- Botón Historial -->
 
     <TextView
         android:id="@+id/tvWelcome"
@@ -66,10 +61,12 @@
         android:layout_height="40dp"
         android:layout_gravity="end"
         android:layout_marginStart="360dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="27dp"
         android:contentDescription="Menú"
         android:src="@drawable/ic_menu"
         app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/toolbar2"
         app:layout_constraintTop_toTopOf="parent" />
 

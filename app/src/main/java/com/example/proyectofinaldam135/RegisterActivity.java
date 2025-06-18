@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (userExists) {
                         Toast.makeText(RegisterActivity.this, "El usuario ya existe", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Dentro del onClick del botón de registro en RegisterActivity.java
+
 
                         Boolean insert = dbHelper.insertUser(user, pass, "usuario");
                         if (insert) {
