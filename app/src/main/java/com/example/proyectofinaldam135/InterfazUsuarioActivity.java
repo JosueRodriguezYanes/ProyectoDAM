@@ -23,6 +23,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Utils.ThemeUtils.applyTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aactivity_usuario);
 
@@ -64,6 +65,9 @@ public class InterfazUsuarioActivity extends AppCompatActivity {
         popup.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.menu_logout) {
                 logout();
+                return true;
+            } else if (item.getItemId() == R.id.menu_theme) {
+                Utils.ThemeUtils.toggleTheme(this);
                 return true;
             }
             return false;

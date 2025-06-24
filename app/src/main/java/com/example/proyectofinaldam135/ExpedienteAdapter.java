@@ -55,7 +55,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Ex
             Expediente expediente = expedientes.get(position);
             holder.bind(expediente);
 
-            // Configurar el estado basado en la urgencia
+            // Configuracion del estado basado en la urgencia
             if ("Realizado".equals(expediente.getUrgencia())) {
                 holder.tvEstado.setText("Realizado");
                 holder.tvEstado.setBackgroundResource(R.drawable.bg_realizado);

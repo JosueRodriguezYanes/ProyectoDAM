@@ -27,4 +27,23 @@
     <color name="verde_realizado">#008000</color>
 
     <color name="gray">@color/grey</color>
+
+
+    <color name="dark_blue">#1976D2</color>
+
+
+    <!-- Colores para modo oscuro -->
+    <color name="light_green">#81C784</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="onBackground">#FFFFFF</color>
+    <color name="onSurface">#FFFFFF</color>
+    <color name="primaryText">#E0E0E0</color>
+    <color name="secondaryText">#B3B3B3</color>
+
+
+    <color name="dialog_background">#FAFAFA</color>
 </resources>

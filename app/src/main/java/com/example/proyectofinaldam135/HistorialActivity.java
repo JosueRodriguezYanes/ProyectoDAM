@@ -15,7 +15,7 @@ public class HistorialActivity extends AppCompatActivity {
     private static final String TAG = "HistorialActivity";
     private RecyclerView recyclerView;
     private ExpedienteAdapter adapter;
-    private DBHelper dbHelper;
+    private DatabaseRepository dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class HistorialActivity extends AppCompatActivity {
                 throw new IllegalStateException("RecyclerView no encontrado en el layout");
             }
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            dbHelper = new DBHelper(this);
+            dbHelper = new DatabaseRepository(this);
         } catch (Exception e) {
             Log.e(TAG, "Error inicializando componentes", e);
             throw e;
@@ -130,7 +130,7 @@ public class HistorialActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(TAG, "Activity destruida");
         if (dbHelper != null) {
-            dbHelper.close();
+
         }
     }
 }

@@ -29,7 +29,7 @@ public class ExpedienteActivity extends AppCompatActivity {
     private Spinner spTipoServicio;
     private RadioGroup rgUrgencia;
     private String currentPhotoPath;
-    private DBHelper dbHelper;
+    private DatabaseRepository dbHelper;
     private SharedPreferences sharedPref;
 
     @Override
@@ -48,7 +48,7 @@ public class ExpedienteActivity extends AppCompatActivity {
         spTipoServicio = findViewById(R.id.spTipoServicio);
         rgUrgencia = findViewById(R.id.rgUrgencia);
 
-        dbHelper = new DBHelper(this);
+        dbHelper = new DatabaseRepository(this);
         sharedPref = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
         // configuracion del spinner

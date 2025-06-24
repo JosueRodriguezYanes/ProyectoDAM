@@ -253,6 +253,13 @@
                 android:backgroundTint="@color/red"
                 android:text="Eliminar"
                 android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnBackground"
+                android:text=""/>
+
         </LinearLayout>
 
     </LinearLayout>

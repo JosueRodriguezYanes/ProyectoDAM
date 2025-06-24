@@ -9,10 +9,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText etLoginUser, etLoginPassword;
     private Button btnLogin, btnGoToRegister;
-    private DBHelper dbHelper;
+    private DatabaseRepository databaseRepository;
     private SharedPreferences sharedPref;
 
     @Override
@@ -25,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         etLoginPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToRegister = findViewById(R.id.btnGoToRegister);
-        dbHelper = new DBHelper(this);
+
+        databaseRepository = new DatabaseRepository(this);
         sharedPref = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
         // Verificar sesión existente
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if (dbHelper.checkUserPassword(user, pass)) {
+        if (databaseRepository.checkUserPassword(user, pass)) {
             saveUserSession(user);
             redirectToApp();
         } else {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private void saveUserSession(String user) {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("usuario", user);
-        editor.putString("rol", dbHelper.getUserRole(user));
+        editor.putString("rol", databaseRepository.getUserRole(user));
         editor.apply();
     }
 
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             intent = new Intent(this, InterfazUsuarioActivity.class);
         }
-
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

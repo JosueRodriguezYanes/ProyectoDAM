@@ -173,5 +173,13 @@
             android:layout_marginTop="16dp"
             android:visibility="gone"
             android:background="#E0E0E0"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnBackground"
+            android:text=""/>
+
     </LinearLayout>
 </ScrollView>
